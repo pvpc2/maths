@@ -1,0 +1,25 @@
+
+def euler(x0, y0, xn, h, f):
+    n = int((xn - x0) / h)
+    x = [x0]
+    y = [y0]
+
+    print('\n The y(x) in each interval \n')
+
+    for i in range(n):
+        y_new = y[i] + h * f(x[i], y[i])
+        x_new = x[i] + h
+        x.append(x_new)
+        y.append(y_new)
+
+        print(f"y({x_new}) = {y_new}")
+
+    print('\n By Euler\'s Method the value of y at %.3f is %.3f' % (x_new, y_new))
+
+    return x, y
+
+
+def f(x, y):
+    return -2*y
+
+euler(0, 1, 0.3, 0.1, f)
