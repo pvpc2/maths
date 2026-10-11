@@ -1,0 +1,19 @@
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(-5, 5, 400)
+y = x**2 - 4
+
+roots_x = [-2, 2]
+roots_y = [0, 0]
+
+plt.plot(x, y, label='y = x^2 - 4')
+plt.plot(roots_x, roots_y, 'ro', label='Roots')
+
+plt.axhline(0, color='black', linewidth=0.8)
+plt.axvline(0, color='black', linewidth=0.8)
+
+plt.grid(True)
+plt.legend()
+plt.show()
