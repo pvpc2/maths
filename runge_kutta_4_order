@@ -1,0 +1,32 @@
+
+def RK4(x0, y0, xn, h, f):
+    n = int((xn - x0) / h)
+    x = [x0]
+    y = [y0]
+
+    print('\n The y(x) in each interval \n')
+
+    for i in range(n):
+        k1 = h * f(x[i], y[i])
+        k2 = h * f(x[i] + h/2, y[i] + k1/2)
+        k3 = h * f(x[i] + h/2, y[i] + k2/2)
+        k4 = h * f(x[i] + h, y[i] + k3)
+
+        y_new = y[i] + (k1 + 2*k2 + 2*k3 + k4) / 6
+        x_new = x[i] + h
+
+        x.append(x_new)
+        y.append(y_new)
+
+        print(f"y({x_new})={y_new}")
+
+    print('\n By Runge Kutta Fourth Order Method the value of y at %.3f is %.3f:' % (x_new, y_new))
+
+    return x, y
+
+
+def f(x, y):
+    return -2*y
+
+
+RK4(0, 1, 0.3, 0.1, f)
